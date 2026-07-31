@@ -25,6 +25,7 @@ export function DataTable<TData, TValue>({
     pageCount,
     pagination,
     onPaginationChange,
+    itemLabel,
 }: {
     columns: ColumnDef<TData, TValue>[];
     data: TData[];
@@ -32,6 +33,7 @@ export function DataTable<TData, TValue>({
     pageCount: number;
     pagination: PaginationState;
     onPaginationChange: (pagination: PaginationState) => void;
+    itemLabel?: string;
 }) {
     const table = useReactTable({
         data,
@@ -95,7 +97,7 @@ export function DataTable<TData, TValue>({
                     </TableBody>
                 </Table>
             </div>
-            <DataTablePagination table={table} />
+            <DataTablePagination table={table} itemLabel={itemLabel} />
         </div>
     );
 }

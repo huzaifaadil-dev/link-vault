@@ -1,6 +1,13 @@
 import { Link } from '@inertiajs/react';
-import { Bookmark, BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import {
+    Bookmark,
+    BookOpen,
+    FolderGit2,
+    FolderOpen,
+    LayoutGrid,
+} from 'lucide-react';
 import BookmarksController from '@/actions/App/Http/Controllers/BookmarksController';
+import CategoriesController from '@/actions/App/Http/Controllers/CategoriesController';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -27,6 +34,11 @@ const mainNavItems: NavItem[] = [
         title: 'Bookmarks',
         href: BookmarksController.index(),
         icon: Bookmark,
+    },
+    {
+        title: 'Categories',
+        href: CategoriesController.index(),
+        icon: FolderOpen,
     },
 ];
 

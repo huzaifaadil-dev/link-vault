@@ -55,6 +55,7 @@ export default function Bookmarks({
                             pageSize: bookmarks.meta.per_page,
                         }}
                         onPaginationChange={handlePaginationChange}
+                        itemLabel="bookmark(s)"
                     />
                 )}
             </div>

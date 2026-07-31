@@ -19,15 +19,17 @@ import {
 export function DataTablePagination<TData>({
     table,
     pageSizeOptions = [10, 15, 25, 50],
+    itemLabel = 'row(s)',
 }: {
     table: Table<TData>;
     pageSizeOptions?: number[];
+    itemLabel?: string;
 }) {
     return (
         <div className="flex items-center justify-between px-2">
             <div className="text-sm text-muted-foreground">
                 Showing {table.getRowModel().rows.length} of{' '}
-                {table.getRowCount()} bookmark(s)
+                {table.getRowCount()} {itemLabel}
             </div>
             <div className="flex items-center space-x-6 lg:space-x-8">
                 <div className="flex items-center space-x-2">
