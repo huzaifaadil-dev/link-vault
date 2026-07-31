@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToUser;
 use Database\Factories\BookmarkFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Bookmark extends Model
 {
     /** @use HasFactory<BookmarkFactory> */
-    use HasFactory;
+    use BelongsToUser, HasFactory;
 
     protected function casts(): array
     {

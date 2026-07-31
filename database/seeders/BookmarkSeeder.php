@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Bookmark;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,14 +16,14 @@ class BookmarkSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(User $user): void
     {
-        $categories = Category::factory()->count(4)->create();
-        $tags = Tag::factory()->count(6)->create();
+        $categories = Category::factory()->count(4)->recycle($user)->create();
+        $tags = Tag::factory()->count(6)->recycle($user)->create();
 
         Bookmark::factory()
             ->count(10)
-            ->recycle($categories)
+            ->recycle([$user, ...$categories])
             ->create()
             ->each(function (Bookmark $bookmark) use ($tags): void {
                 $bookmark->tags()->attach(
