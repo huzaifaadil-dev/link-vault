@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import { Bookmark, BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import BookmarksController from '@/actions/App/Http/Controllers/BookmarksController';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -21,6 +22,11 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
+    },
+    {
+        title: 'Bookmarks',
+        href: BookmarksController.index(),
+        icon: Bookmark,
     },
 ];
 
