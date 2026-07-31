@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookmarksController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\TagsController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -16,6 +17,10 @@ Route::middleware(['auth'])->prefix('bookmarks')->as('bookmarks.')->group(functi
 
 Route::middleware(['auth'])->prefix('categories')->as('categories.')->group(function () {
     Route::get('/', [CategoriesController::class, 'index'])->name('index');
+});
+
+Route::middleware(['auth'])->prefix('tags')->as('tags.')->group(function () {
+    Route::get('/', [TagsController::class, 'index'])->name('index');
 });
 
 require __DIR__.'/settings.php';
