@@ -588,6 +588,13 @@ Rules:
   an explicit parameter: `handle(SubmissionData $data, User $user)`. An Action that
   reads the session can't be reused from a job, command, or another user's context,
   and hides who it acts on. The controller resolves the user; the Action receives it.
+- **Strict**: when a Data DTO's fields match the target model's fillable columns
+  1:1, pass `$data->toArray()` directly into `create()`/`update()` rather than
+  re-listing every field by hand. When one or more fields differ (renamed,
+  computed, or need a fixed override), merge just the difference:
+  `array_merge($data->toArray(), ['status' => BookmarkStatus::PENDING->value])`.
+  Never hand-map a field-by-field array when `toArray()` (optionally merged)
+  already produces the right shape.
 
 ### Data objects (Spatie Laravel Data)
 

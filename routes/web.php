@@ -13,6 +13,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth'])->prefix('bookmarks')->as('bookmarks.')->group(function () {
     Route::get('/', [BookmarksController::class, 'index'])->name('index');
+    Route::post('/', [BookmarksController::class, 'store'])->name('store');
 });
 
 Route::middleware(['auth'])->prefix('categories')->as('categories.')->group(function () {

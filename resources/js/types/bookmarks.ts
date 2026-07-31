@@ -32,3 +32,7 @@ export type Paginated<T> = {
         total: number;
     };
 };
+
+export type ResourceCollection<T> = {
+    data: T[];
+};
