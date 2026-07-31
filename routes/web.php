@@ -23,6 +23,7 @@ Route::middleware(['auth'])->prefix('categories')->as('categories.')->group(func
 
 Route::middleware(['auth'])->prefix('tags')->as('tags.')->group(function () {
     Route::get('/', [TagsController::class, 'index'])->name('index');
+    Route::post('/', [TagsController::class, 'store'])->name('store');
 });
 
 require __DIR__.'/settings.php';

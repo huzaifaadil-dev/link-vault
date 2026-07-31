@@ -3,6 +3,7 @@ import type { PaginationState } from '@tanstack/react-table';
 import { Tag as TagIcon } from 'lucide-react';
 import { useRef } from 'react';
 import TagsController from '@/actions/App/Http/Controllers/TagsController';
+import { CreateTagDialogue } from '@/components/tags/create-tag-dialogue';
 import { DataTable } from '@/components/ui/data-table';
 import { EmptyState } from '@/components/ui/empty-state';
 import { columns } from '@/pages/tags/columns';
@@ -34,6 +35,10 @@ export default function Tags({ tags }: { tags: Paginated<Tag> }) {
         <>
             <Head title="Tags" />
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
+                <div className="flex items-center justify-end">
+                    <CreateTagDialogue />
+                </div>
+
                 {tags.meta.total === 0 ? (
                     <EmptyState
                         icon={TagIcon}
