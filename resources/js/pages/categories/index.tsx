@@ -3,6 +3,7 @@ import type { PaginationState } from '@tanstack/react-table';
 import { FolderOpen } from 'lucide-react';
 import { useRef } from 'react';
 import CategoriesController from '@/actions/App/Http/Controllers/CategoriesController';
+import { CreateCategoryDialogue } from '@/components/categories/create-category-dialogue';
 import { DataTable } from '@/components/ui/data-table';
 import { EmptyState } from '@/components/ui/empty-state';
 import { columns } from '@/pages/categories/columns';
@@ -38,6 +39,10 @@ export default function Categories({
         <>
             <Head title="Categories" />
             <div className="flex h-full flex-1 flex-col gap-4 p-4">
+                <div className="flex items-center justify-end">
+                    <CreateCategoryDialogue />
+                </div>
+
                 {categories.meta.total === 0 ? (
                     <EmptyState
                         icon={FolderOpen}

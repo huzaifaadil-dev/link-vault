@@ -18,6 +18,7 @@ Route::middleware(['auth'])->prefix('bookmarks')->as('bookmarks.')->group(functi
 
 Route::middleware(['auth'])->prefix('categories')->as('categories.')->group(function () {
     Route::get('/', [CategoriesController::class, 'index'])->name('index');
+    Route::post('/', [CategoriesController::class, 'store'])->name('store');
 });
 
 Route::middleware(['auth'])->prefix('tags')->as('tags.')->group(function () {
